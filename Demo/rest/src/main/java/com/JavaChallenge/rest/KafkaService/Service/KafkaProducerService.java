@@ -11,8 +11,11 @@ import org.springframework.stereotype.Service;
  * @author Administrator
  */
 @Service
-public class KafkaProducerService {
-     private static final String TOPIC = "topic";
+public class KafkaProducerService implements InterfaceKafkaProducerService{
+    public static final String REQUEST_SUM = "requestSum";
+    public static final String REQUEST_SUBTRACTION = "requestSubtraction";
+    public static final String REQUEST_MULTIPLICATION = "requestMultiplication";
+    public static final String REQUEST_DIVISION = "requestDivision";
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
@@ -20,8 +23,26 @@ public class KafkaProducerService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(String message) {
-        kafkaTemplate.send(TOPIC, message);
+    @Override
+    public void resquestSum(String message) {
+        kafkaTemplate.send(REQUEST_SUM, message);
         System.out.println("Message sent: " + message);
     }
+     @Override
+    public void resquestSubtraction(String message) {
+        kafkaTemplate.send(REQUEST_SUBTRACTION, message);
+        System.out.println("Message sent: " + message);
+    }
+     @Override
+     public void resquestMultiplication(String message) {
+        kafkaTemplate.send(REQUEST_MULTIPLICATION, message);
+        System.out.println("Message sent: " + message);
+    }
+     @Override
+     public void resquestDivision(String message) {
+        kafkaTemplate.send(REQUEST_DIVISION, message);
+        System.out.println("Message sent: " + message);
+    }
+    
+    
 }
