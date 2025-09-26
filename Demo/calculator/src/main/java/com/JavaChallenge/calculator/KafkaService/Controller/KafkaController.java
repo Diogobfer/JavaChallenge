@@ -19,10 +19,4 @@ public class KafkaController {
     public KafkaController(KafkaProducerService kafkaProducerService) {
         this.kafkaProducerService = kafkaProducerService;
     }
-
-    @GetMapping("/send")
-    public String sendMessage(@RequestParam String message) {
-        kafkaProducerService.sendMessage(message);
-        return "Message sent successfully";
-    }
 }
