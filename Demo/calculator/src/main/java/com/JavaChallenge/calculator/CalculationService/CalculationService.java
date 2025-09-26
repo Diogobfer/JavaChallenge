@@ -52,8 +52,6 @@ public class CalculationService implements InterfaceCalculationService{
         BigDecimal bigDecA = convertStringToBigDecimal(a);
         BigDecimal bigDecB = convertStringToBigDecimal(b);
         
-        
-        // Always check for division by zero before proceeding
         if (bigDecB.compareTo(BigDecimal.ZERO) == 0) {
            return "Division by zero is not allowed";
         }else{
