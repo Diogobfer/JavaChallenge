@@ -147,7 +147,3 @@ When building with Docker Compose, specify the desired target:
   ```
 
 ---
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
