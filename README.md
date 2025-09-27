@@ -23,7 +23,7 @@ The application uses **Kafka** for asynchronous message processing and is packag
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/java-challenge.git
+git clone [https://github.com/yourusername/java-challenge.git](https://github.com/Diogobfer/JavaChallenge.git)
 cd java-challenge
 ```
 
