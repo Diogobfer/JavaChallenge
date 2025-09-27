@@ -1,29 +1,27 @@
 services:
   # Java Challenge 
+  #rest module 
   rest:
     container_name: rest
     build:
       context: ./Demo
       dockerfile: Dockerfile
-      target: restimage     
+      #Image with low footprint only rest module   
+      target: restimageslim 
+      #Image that alow to run the tests 
+      #target: restimagetesting     
     restart: always
-    # depends_on:
-    #   - broker
     ports:
       - "8080:8080"   
     
-
+  #calculator module 
   calculator:
     container_name: calculator
     build:
       context: ./Demo
       dockerfile: Dockerfile
       target: calculatorimage  
-    restart: always
-    # depends_on:
-    #   - broker
-    ports:
-      - "8081:8080"   
+    restart: always  
     
 
   #Kafka Broker 

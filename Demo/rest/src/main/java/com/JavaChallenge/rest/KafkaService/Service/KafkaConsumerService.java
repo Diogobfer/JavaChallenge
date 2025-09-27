@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.JavaChallenge.rest.KafkaService.Service;
+import com.JavaChallenge.rest.MessageCacheService.MessageCacheService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 /**
@@ -12,54 +13,40 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumerService implements InterfaceKafkaConsumerService{
     
-    private String sumResult;
-    private String subtractionResult;
-    private String multiplicationResult;
-    private String divisionResult;
-
+    private final MessageCacheService messageCacheService;
     
+    public KafkaConsumerService(MessageCacheService messageCacheService )
+    {
+        this.messageCacheService = messageCacheService;
+    }
+    
+    
+    //when the mesage is recebed by de module is stored on the hashmap by ID 
     @KafkaListener(topics = "sumResult", groupId = "com.JavaChallenge")
     @Override
     public void sumResult(String message) {
         
-        this.sumResult = message;
+        System.out.println("mesage recived from calculator : "+ message);
+        messageCacheService.storeMessage(message); 
     }
 
     @KafkaListener(topics = "subtractionResult", groupId = "com.JavaChallenge")
     @Override
     public void subtractionResult(String message) {
         
-       this.subtractionResult= message;
+       messageCacheService.storeMessage(message); 
     }
 
     @KafkaListener(topics = "multiplicationResult", groupId = "com.JavaChallenge")
     @Override
     public void multiplicationResult(String message) {
-       this.multiplicationResult = message;
+       messageCacheService.storeMessage(message); 
     }
 
     @KafkaListener(topics = "divisionResult", groupId = "com.JavaChallenge")
     @Override
     public void divisionResult(String message) {
-      this.divisionResult = message;
+      messageCacheService.storeMessage(message); 
     }
    
-    public String getSumResult() {
-        return sumResult;
-    }
-
-   
-    public String getSubtractionResult() {
-        return subtractionResult;
-    }
-
-    
-    public String getMultiplicationResult() {
-        return multiplicationResult;
-    }
-
-   
-    public String getDivisionResult() {
-        return divisionResult;
-    }
 }

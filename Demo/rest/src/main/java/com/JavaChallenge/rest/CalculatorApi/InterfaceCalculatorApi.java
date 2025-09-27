@@ -4,6 +4,9 @@
  */
 package com.JavaChallenge.rest.CalculatorApi;
 
+import java.util.concurrent.CompletableFuture;
+import org.springframework.http.ResponseEntity;
+
 
 /**
  *
@@ -11,12 +14,12 @@ package com.JavaChallenge.rest.CalculatorApi;
  */
 public interface InterfaceCalculatorApi {
    
-    public String sum(String a , String b);
+    public CompletableFuture<ResponseEntity<String>> sum(String a , String b);
     
-    public String subtraction(String a , String b);
+    public CompletableFuture<ResponseEntity<String>> subtraction(String a , String b);
     
-    public String multiplication(String a , String b);
+    public CompletableFuture<ResponseEntity<String>> multiplication(String a , String b);
     
-    public String division(String a , String b);
+    public CompletableFuture<ResponseEntity<String>> division(String a , String b);
     
 }

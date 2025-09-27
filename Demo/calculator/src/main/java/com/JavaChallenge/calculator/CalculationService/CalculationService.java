@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculationService implements InterfaceCalculationService{
 
-    private static final int DIVISION_SCALE = 10;
+    private static final int DIVISION_SCALE = 30;
     private static final RoundingMode DIVISION_ROUNDING_MODE = RoundingMode.HALF_UP;
 
     

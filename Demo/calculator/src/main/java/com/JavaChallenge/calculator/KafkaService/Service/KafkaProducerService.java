@@ -26,7 +26,7 @@ public class KafkaProducerService implements InterfaceKafkaProducerService{
    
     @Override
     public void sumResult(String message) {
-         kafkaTemplate.send(SUM_RESULT, message);
+        kafkaTemplate.send(SUM_RESULT, message);
         System.out.println("Message sent: " + message);
     }
 
